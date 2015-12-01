@@ -1,65 +1,61 @@
 package riansyah.unikom.skripsitrapende.models;
 
+import javax.persistence.*;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 public class Penduduk {
     @Id
-    @Column(length=16, nullable=false, unique = true)
+    @Column(length = 16, nullable = false, unique = true)
     private String nik;
-    
-    @Column(length=50, nullable=false)
+
+    @Column(length = 50, nullable = false)
     private String nama;
-    
-    @Column(length=1, nullable=false)
+
+    @Column(length = 1, nullable = false)
     private String jkelamin;
-    
-    @Column(length=25, nullable=false)
+
+    @Column(length = 25, nullable = false)
     private String tempatlahir;
-    
+
     @Temporal(TemporalType.DATE)
-    @Column(length=10, nullable=false)
+    @Column(length = 10, nullable = false)
     private Date tanggallahir;
-    
-    @Column(length=10, nullable=false)
+
+    @Column(length = 10, nullable = false)
     private String agama;
-    
-    @Column(length=25, nullable=false)
+
+    @Column(length = 25, nullable = false)
     private String pendidikan;
-    
-    @Column(length=25, nullable=false)
+
+    @Column(length = 25, nullable = false)
     private String pekerjaan;
-    
-    @Column(length=15, nullable=false)
+
+    @Column(length = 15, nullable = false)
     private String statusnikah;
-    
-    @Column(length=15, nullable=false)
+
+    @Column(length = 15, nullable = false)
     private String statuskel;
-    
-    @Column(length=3, nullable=false)
+
+    @Column(length = 3, nullable = false)
     private String kwn;
-    
-    @Column(length=20, nullable=false)
+
+    @Column(length = 20, nullable = false)
     private String nopassport;
-    
-    @Column(length=20, nullable=false)
+
+    @Column(length = 20, nullable = false)
     private String nokitas;
-    
-    @Column(length=50, nullable=false)
+
+    @Column(length = 50, nullable = false)
     private String ayah;
-    
-    @Column(length=50, nullable=false)
+
+    @Column(length = 50, nullable = false)
     private String ibu;
-    
+
     public String getNik() {
         return nik;
     }
-    
+
     public void setNik(String nik) {
         this.nik = nik;
     }
@@ -175,7 +171,7 @@ public class Penduduk {
     public void setIbu(String ibu) {
         this.ibu = ibu;
     }
-    
-    
+
+
 }
 

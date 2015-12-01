@@ -1,10 +1,17 @@
 package riansyah.unikom.skripsitrapende.gui;
 
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+import javax.accessibility.AccessibleContext;
+
 @Component
-public class PanelPenduduk extends javax.swing.JPanel {
-    
+public class PanelPenduduk extends javax.swing.JPanel implements ApplicationContextAware{
+
+    private ApplicationContext springContext;
+
     public PanelPenduduk() {
         initComponents();
         txtNIK.setVisible(false);
@@ -237,7 +244,7 @@ public class PanelPenduduk extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-        DialogPendudukAdd dialogPendudukAdd  = new DialogPendudukAdd(null, true);
+        DialogPendudukAdd dialogPendudukAdd  = springContext.getBean(DialogPendudukAdd.class);
         dialogPendudukAdd.setVisible(true);
     }//GEN-LAST:event_btnTambahActionPerformed
 
@@ -273,5 +280,9 @@ public class PanelPenduduk extends javax.swing.JPanel {
     private javax.swing.JTextField txtCari;
     private javax.swing.JTextField txtNIK;
     private javax.swing.JTextField txtNoKK;
+
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.springContext = applicationContext;
+    }
     // End of variables declaration//GEN-END:variables
 }
