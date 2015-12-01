@@ -1,12 +1,20 @@
 package riansyah.unikom.skripsitrapende.gui;
 
 import javax.swing.JFrame;
+
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 import riansyah.unikom.skripsitrapende.services.ServicePenduduk;
 
-public class FormMenuUtama extends javax.swing.JFrame {
+@Component
+public class FormMenuUtama extends javax.swing.JFrame implements ApplicationContextAware{
 
     private ServicePenduduk penduduk;
+    private ApplicationContext springContext;
+
 
     @Autowired
     public void setPenduduk(ServicePenduduk penduduk) {
@@ -470,7 +478,7 @@ public class FormMenuUtama extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPendudukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPendudukActionPerformed
-        PanelPenduduk panelPenduduk = new PanelPenduduk();
+        PanelPenduduk panelPenduduk = springContext.getBean(PanelPenduduk.class);
         panelDinamic.removeAll();
         panelDinamic.add(panelPenduduk);
         panelDinamic.repaint();
@@ -662,6 +670,9 @@ public class FormMenuUtama extends javax.swing.JFrame {
         panelDinamic.repaint();
         panelDinamic.revalidate();
     }
-    
 
+
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.springContext = applicationContext;
+    }
 }

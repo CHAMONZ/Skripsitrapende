@@ -23,7 +23,7 @@ public class Configuration {
     public DataSource dataSource(){
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUser("root");
-        dataSource.setPassword("");
+        dataSource.setPassword("admin");
         dataSource.setURL("jdbc:mysql://localhost:3306/sitrapende_db");
         return dataSource;
     }
@@ -44,7 +44,7 @@ public class Configuration {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setHibernateProperties(properties());
         sessionFactoryBean.setDataSource(dataSource);
-        sessionFactoryBean.setPackagesToScan("");
+        sessionFactoryBean.setPackagesToScan("riansyah.unikom.skripsitrapende.models");
         return sessionFactoryBean;
     }
     

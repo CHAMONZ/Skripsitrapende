@@ -1,9 +1,14 @@
 package riansyah.unikom.skripsitrapende.gui;
 
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FormLogin extends javax.swing.JFrame {
+public class FormLogin extends javax.swing.JFrame implements ApplicationContextAware{
+
+    private ApplicationContext springContext;
 
     public FormLogin() {
         initComponents();
@@ -310,7 +315,7 @@ public class FormLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        FormMenuUtama menuUtama = new FormMenuUtama();
+        FormMenuUtama menuUtama = springContext.getBean(FormMenuUtama.class);
         menuUtama.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -385,5 +390,9 @@ public class FormLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalPenduduk;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
+
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.springContext = applicationContext;
+    }
     // End of variables declaration//GEN-END:variables
 }
